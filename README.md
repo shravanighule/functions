@@ -1,5 +1,5 @@
 Functions
-Aim
+Aim:
 To study pointer operations
 
 Software Used
