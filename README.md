@@ -1,35 +1,36 @@
-Functions
-Aim:
-To study pointer operations
+# Functions
 
-Software Used
-Visual studio code
+## Aim
+To demonstrate the use of pointers in C++ by swapping the values of two variables using a function.
 
-Theory
+## Theory
+Pointers are variables that store the memory address of another variable. By using pointers, we can directly manipulate the values stored in memory. This is particularly useful for functions that need to modify the actual values of arguments passed to them.
 
-In C++, functions can receive parameters in different ways, influencing how the function manipulates the provided values. Two common methods are Call by Reference and Call by Value:
-Call by Reference
-Definition: Call by Reference means passing the address (reference) of the actual parameters to the function. This allows the function to modify the original values.
+## Algorithm
+1. Define a function `swap` that takes two integer pointers as parameters.
+2. Inside the function, declare a temporary integer variable `temp`.
+3. Assign the value pointed to by the first pointer to `temp`.
+4. Assign the value pointed to by the second pointer to the location pointed to by the first pointer.
+5. Assign the value stored in `temp` to the location pointed to by the second pointer.
+6. In the `main` function, declare two integer variables `a` and `b` and initialize them.
+7. Call the `swap` function, passing the addresses of `a` and `b`.
+8. Print the swapped values of `a` and `b`.
 
-Working: The function receives pointers to the variables, and operations performed inside the function affect the original variables directly.
+```cpp
+#include <iostream>
+using namespace std;
 
-Call by Value
-Definition: Call by Value means passing a copy of the actual parameters to the function. Changes made to the parameters inside the function do not affect the original variable
+void swap(int *x, int *y) {
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
 
-Algorithms
-Call by value
-1.Start
-2.Define Function swap(int x, int y)
-Input: Two integers x and y
-Output: Swapped values of x and y
-Inside Swap function:
-Create a temporary variable temp
-Assign the value of x to temp
-Assign the value of y to x
-Assign the value of temp to y
-3.Inside main Function
-Define two integers a and b with 5 and 2
-Call swap(a, b)
-Print the value of a
-Print the value of b
-4.End
+int main() {
+    int a = 5, b = 2;
+    swap(&a, &b);
+    cout << "value of a: " << a << endl;
+    cout << "value of b: " << b << endl;
+    return 0;
+}
